@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kino</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+
+<body>
+    <section id="wrap">
+        <section id="banner">
+            <h1 id="logo">Kino Zmierzch</h1>
+        </section>
+        <section id="cinema">
+            <section id="screen"></section>
+            <script>
+                document.write("<table id = 'sala'>");
+                for (var e = 0; e <= 7; e++) {
+                    document.write('<tr>')
+                    for (var i = 0; i <= 12; i++) {
+                        document.write('<td> <input type="checkbox" onchange="add_cena(this.checked)" class = "checkbox"> </td>')
+                    }
+                    document.write("</tr>")
+                }
+                document.write("</table>")
+            </script>
+        </section>
+        <script>
+            var cena = 0;
+            var miejsca = 0;
+            function add_cena(checked) {
+                if (checked) {
+                    cena += 20;
+                    miejsca += 1;
+                }
+                if (!checked) {
+                    cena -= 20;
+                    miejsca -= 1;
+                }
+                document.getElementById("cena").innerHTML = cena;
+                document.getElementById("miejsca").innerHTML = miejsca;
+    
+            }
+            function change_city(value) {
+                document.getElementById("city").innerHTML = value
+            }
+        </script>
+        <select id="miasto" onchange="change_city(this.value)">
+            <option>Leszno</option>
+            <option>Poznań</option>
+            <option>Warszawa</option>
+            <option>Gdańsk</option>
+            <option>Zakopane</option>
+        </select>
+        <section id="ticket">
+            <section id="ticket_info">
+                <h1>Bilet</h1>
+                <h2>Cena: <b id="cena"></b></h2>
+                <h2>Ilość miejsc: <b id="miejsca"></b></h2>
+                <h2>Sala: <b id="city">Leszno</b></h2>
+            </section>
+            <section id="code">
+                <section class="bar1" style="background-color: transparent;"></section>
+                <section class="bar3"></section>
+                <section class="bar2"></section>
+                <section class="bar3"></section>
+                <section class="bar1"></section>
+                <section class="bar2"></section>
+                <section class="bar1"></section>
+                <section class="bar1"></section>
+                <section class="bar3"></section>
+                <section class="bar2"></section>
+                <section class="bar3"></section>
+                <section class="bar1"></section>
+                <section class="bar2"></section>
+                <section class="bar1"></section>
+                <section class="bar1"></section>
+                <section class="bar2"></section>
+                <section class="bar1"></section>
+                <section class="bar1"></section>
+                <section class="bar2"></section>
+                <section class="bar1" style="background-color: transparent;"></section>
+            </section>
+        </section>
+        <button id="reserve">Zarezerwuj</button>
+    </section>
+    
+</body>
+
+</html>
